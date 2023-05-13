@@ -1,5 +1,5 @@
 module.exports = {
-  mongoURI: "mongodb://localhost:27017/db_pickorrick",
+  mongoURI: "mongodb+srv://cmon:cmon@cmondb.vfrm2t1.mongodb.net/",
   secretOrKey: "secret",
   port: 5000,
 };
