@@ -32,16 +32,6 @@ app.use("/api/pots", pots);
 app.use("/api/histories", histories);
 app.use("/api/verifies", verifies);
 
-// Server static assets if in production
-if (process.env.NODE_ENV === "production") {
-  // Set static folder
-  app.use(express.static("client/build"));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
-
 app.get("/", (req, res) => {
   res.json({ msg: "Server is running for Pick Or Rick" });
 });
