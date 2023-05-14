@@ -75,7 +75,7 @@ router.post("/send-mail", (req, res) => {
       newVerify
         .save()
         .then((verify) => {
-          res.json(verify);
+          res.json({ msg: "Code sent success!" });
         })
         .catch((err) => res.status(404).json(err));
     }
