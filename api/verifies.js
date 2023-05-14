@@ -76,7 +76,7 @@ router.post("/send-mail", (req, res) => {
 // @route   POST api/verifies/confirm
 // @desc    Save verify history
 // @access  Public
-router.post("/send-mail", (req, res) => {
+router.post("/confirm", (req, res) => {
   Verify.find()
     .sort({ created_at: -1 })
     .limit(1)
