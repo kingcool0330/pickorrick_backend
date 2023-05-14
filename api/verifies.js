@@ -47,7 +47,16 @@ router.post("/send-mail", (req, res) => {
     from: "stanislav.kogutstt2@gmail.com", // sender address
     to: req.body.useremail, // list of receivers
     subject: "Verify Code", // Subject line
-    text: "Verify Code: <b>" + code + "</b>", // plaintext body
+    html:
+      `<html>
+      <body>
+        <div>
+          Verify Code: <span style="font-size: 32px; font-weight: bolder;">` +
+      code +
+      `</span>
+        </div>
+      </body>
+    </html>`,
   };
 
   // send mail with defined transport object
