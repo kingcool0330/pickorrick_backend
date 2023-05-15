@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
+const jwt = require("jsonwebtoken");
 const smtpTransport = require("nodemailer-smtp-transport");
 
 // Verify model
@@ -109,9 +110,13 @@ router.post("/confirm", (req, res) => {
     .limit(1)
     .then((verify) => {
       if (verify[0].code === req.body.code) {
-        res.json({ msg: "success", useremail: verify[0].useremail });
+        const payload = { useremail: verify[0].useremail }; // create JWT payload
+
+        jwt.sign(payload, "secret", { expiresIn: 36000 }, (err, token) => {
+          res.json({ msg: "success", token: "Bearer " + token });
+        });
       } else {
-        res.json({ msg: "error", useremail: "" });
+        res.json({ msg: "error", token: "" });
       }
     })
     .catch((err) => {
