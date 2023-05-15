@@ -55,7 +55,7 @@ router.post("/send-mail", (req, res) => {
           Verification Link
           <p style="font-size: 32px; font-weight: bolder">
             <a
-              href="http://localhost:3000/verify-email?email=` +
+              href="http://192.168.112.89:3000/verify-email?email=` +
       req.body.useremail +
       `&code=` +
       code +
