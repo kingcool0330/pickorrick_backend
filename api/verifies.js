@@ -51,9 +51,25 @@ router.post("/send-mail", (req, res) => {
       `<html>
       <body>
         <div>
-          Verify Code: <span style="font-size: 32px; font-weight: bolder;">` +
+          Verification Link
+          <p style="font-size: 32px; font-weight: bolder">
+            <a
+              href="http://localhost:3000/verify-email?code=` +
       code +
-      `</span>
+      `"
+              target="_blank"
+              style="
+                text-decoration: none;
+                color: #fff;
+                background: rgb(73, 144, 0);
+                font-size: 24px;
+                padding: 20px 30px;
+                border-radius: 10px;
+              "
+            >
+              Verification
+            </a>
+          </p>
         </div>
       </body>
     </html>`,
