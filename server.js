@@ -2,13 +2,20 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const path = require("path");
+const cors = require("cors");
 
 const pots = require("./api/pots");
 const histories = require("./api/histories");
 const verifies = require("./api/verifies");
 
 const app = express();
+
+// Set cors
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
