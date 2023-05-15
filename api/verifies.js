@@ -102,7 +102,7 @@ router.post("/send-mail", (req, res) => {
 // @desc    Save verify history
 // @access  Public
 router.post("/confirm", (req, res) => {
-  Verify.find()
+  Verify.find({ useremail: req.body.useremail })
     .sort({ created_at: -1 })
     .limit(1)
     .then((verify) => {
