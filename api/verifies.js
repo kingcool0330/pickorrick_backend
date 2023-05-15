@@ -30,7 +30,7 @@ router.post("/send-mail", (req, res) => {
   });
 
   // Get Verifycode
-  var code = generateRandomString(6);
+  var code = generateRandomString(40);
 
   var transport = nodemailer.createTransport(
     smtpTransport({
