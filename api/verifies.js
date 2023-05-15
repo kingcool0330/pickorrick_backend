@@ -109,9 +109,9 @@ router.post("/confirm", (req, res) => {
     .limit(1)
     .then((verify) => {
       if (verify[0].code === req.body.code) {
-        res.json({ msg: "success" });
+        res.json({ msg: "success", useremail: verify[0].useremail });
       } else {
-        res.json({ msg: "error" });
+        res.json({ msg: "error", useremail: "" });
       }
     })
     .catch((err) => {
