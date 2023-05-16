@@ -21,9 +21,9 @@ setInterval(() => {
   ) {
     console.log("Vote Started! Please connect smart contract");
   }
-  console.log(
-    newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds()
-  );
+  // console.log(
+  //   newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds()
+  // );
 }, 1000);
 
 // @route   GET api/pots/currentTime
