@@ -109,14 +109,18 @@ router.post("/confirm", (req, res) => {
     .sort({ created_at: -1 })
     .limit(1)
     .then((verify) => {
-      if (verify[0].code === req.body.code) {
-        const payload = { useremail: verify[0].useremail }; // create JWT payload
-
-        jwt.sign(payload, "secret", { expiresIn: 36000 }, (err, token) => {
-          res.json({ msg: "success", token: "Bearer " + token });
-        });
-      } else {
+      if (verify.length === 0) {
         res.json({ msg: "error", token: "" });
+      } else {
+        if (verify[0].code === req.body.code) {
+          const payload = { useremail: verify[0].useremail }; // create JWT payload
+
+          jwt.sign(payload, "secret", { expiresIn: 36000 }, (err, token) => {
+            res.json({ msg: "success", token: "Bearer " + token });
+          });
+        } else {
+          res.json({ msg: "error", token: "" });
+        }
       }
     })
     .catch((err) => {
