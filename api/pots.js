@@ -52,7 +52,7 @@ router.get("/status", (req, res) => {
   });
 
   const currentDate = new Date(currentTime);
-  if (currentDate.getHours() === 12) {
+  if (currentDate.getHours() === 9) {
     res.json({
       msg: "Please bet!",
       currentDate,
