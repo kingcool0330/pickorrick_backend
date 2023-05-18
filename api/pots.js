@@ -15,7 +15,7 @@ setInterval(() => {
   const newDate = new Date(currentTime);
 
   if (
-    newDate.getHours() === 12 &&
+    newDate.getHours() === 9 &&
     newDate.getMinutes() === 0 &&
     newDate.getSeconds() === 0
   ) {
@@ -52,6 +52,7 @@ router.get("/status", (req, res) => {
   });
 
   const currentDate = new Date(currentTime);
+  console.log(currentDate.getHours(), "----current time-----");
   if (currentDate.getHours() === 9) {
     res.json({
       msg: "Please bet!",
