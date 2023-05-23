@@ -38,6 +38,16 @@ router.get("/getstatus", (req, res) => {
     });
 });
 
+router.post("/setstatus", (req, res) => {
+  Adminstate.findOneAndUpdate(
+    { _id: req.body.id },
+    { $set: { status: req.body.status } },
+    { new: true }
+  )
+    .then((adminstates) => res.json({ msg: "success" }))
+    .catch((err) => console.log(err));
+});
+
 router.get("/addstatus", (req, res) => {
   const newitem = new Adminstate({
     status: 0,
